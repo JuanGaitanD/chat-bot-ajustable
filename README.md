@@ -1,4 +1,4 @@
-# Chatcito-Jada 🤖
+# Agente-Jada 🤖
 
 Una página web responsive para un chatbot inteligente con interfaz moderna y funcionalidad de configuración de contexto de IA.
 
