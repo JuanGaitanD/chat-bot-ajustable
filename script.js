@@ -1,7 +1,7 @@
 // Chatcito-Jada - Chatbot JavaScript
 class ChatcitoJada {
     constructor() {
-        this.url = 'http://localhost:5678/webhook/23baeb49-6cb7-42a1-86b9-3d07d592b658';
+        this.url = 'https://f0033bfb67b0.ngrok-free.app/webhook/23baeb49-6cb7-42a1-86b9-3d07d592b658';
         this.messages = [];
         this.context = {
             personality: '',
