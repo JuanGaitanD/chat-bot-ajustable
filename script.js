@@ -1,7 +1,7 @@
 // Chatcito-Jada - Chatbot JavaScript
 class ChatcitoJada {
     constructor() {
-        this.url = 'http://localhost:5678/webhook/23baeb49-6cb7-42a1-86b9-3d07d592b658';
+        this.url = 'https://f0033bfb67b0.ngrok-free.app/webhook/23baeb49-6cb7-42a1-86b9-3d07d592b658';
         this.messages = [];
         this.context = {
             personality: '',
@@ -312,7 +312,6 @@ class ChatcitoJada {
         localStorage.setItem('chatcito-jada-setup-completed', 'true');
 
         // Show chat page
-        // Show chat page and generate initial message
         this.showChatPage();
 
         this.showNotification('¡Bienvenido al chat! Tu contexto ha sido configurado.', 'success');
@@ -329,7 +328,7 @@ class ChatcitoJada {
 
         localStorage.setItem('chatcito-jada-context', JSON.stringify(this.context));
         localStorage.setItem('chatcito-jada-setup-completed', 'true');
-
+        
         // Show chat page and generate initial message
         this.showChatPage();
         this.showNotification('Configuración omitida. Usando contexto por defecto.', 'info');
@@ -376,6 +375,10 @@ class ChatcitoJada {
 
             // Create a personalized initial prompt based on context
             let initialPrompt = "Genera un mensaje de bienvenida personalizado y breve. Saluda al usuario de manera amigable y personalizada, presentándote brevemente e invitándolo a comenzar la conversación. El mensaje debe ser conciso y motivador. EL USUARIO NO TIENE NOMBRE A MENOS QUE SE LE INDIQUE.";
+
+            if (this.context.personality == '') {
+                this.skipSetup();
+            }
 
             const response = await this.generateResponse(initialPrompt);
             this.addMessage(response, 'bot');
